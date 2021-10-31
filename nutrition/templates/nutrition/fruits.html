@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nutrition/fruits.css' %}">
+</head>
+<body>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+
+
+<form class="search" method="get" action="/nutrition/search/">
+  <div class="search__wrapper">
+    <input type="text" name="search" id='search' placeholder="Search for fruits..." class="search__field">
+    <button type="submit" class="fa fa-search search__icon"></button>
+  </div>
+</form>
+<p>{{obj.desc}}</p>
+<!-- <div class="data">
+<div class="circle-container">
+    <div class="circle extra-1">
+        <div class="item layer-1">
+            <div class="fill">
+                
+            </div>
+        </div>
+        <div class="item layer-2">
+            <div class="fill">
+
+            </div>
+        </div>
+        <div class="inside-content">64%
+
+        </div>
+    </div>
+</div>
+<div class="circle-container">
+    <div class="circle extra-2">
+        <div class="item layer-1">
+            <div class="fill">
+                
+            </div>
+        </div>
+        <div class="item layer-2">
+            <div class="fill">
+
+            </div>
+        </div>
+        <div class="inside-content">58%
+
+        </div>
+    </div>
+</div>
+</div> -->
+</body>
+</html>

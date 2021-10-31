@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- tailwind cdn -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <title>About Author</title>
+</head>
+{% load static %}
+<body>
+    <div class="container mx-auto ">
+        <div class="grid grid-cols-1 md:grid-cols-2 h-screen ">
+            <div class="max-h-96 md:h-screen">
+                <img class="w-screen h-screen object-cover object-top" src="{% static 'nutrition/img-about.png' %}" alt="error;">
+            </div>
+            <div class="flex bg-red-200 p-10 ">
+                <div class="mb-auto mt-auto max-w-lg">
+                    <h1 class="text-3xl uppercase">Akshay</h1>
+                    <p class="font-semibold mb-5">Health Specialist</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
+                        eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit,
+                        posuere a, pede.</p>
+                    <button class="bg-black rounded-md py-3 px-7 mt-6 text-white"> <a href="mailto:akshaybillore92@gmail.com"> Email Me </a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

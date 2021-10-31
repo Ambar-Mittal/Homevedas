@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>HomeVeda</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nutrition/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'nutrition/register.css' %}" />
+    <link rel="stylesheet" href="{% static 'nutrition/search.css' %}" />
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'nutrition/favicon.ico' %}" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">HomeVeda</a>
+            <div class="button"></div>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="
+            row
+            gx-4 gx-lg-5
+            h-100
+            align-items-center
+            justify-content-center
+            text-center
+          ">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">
+                        Your Favorite Place to Look for Nutritional Values
+                    </h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 mb-5">
+                        A healthy diet throughout life supports normal growth, development
+                        and ageing, helps to maintain a healthy body weight, and reduces
+                        the risk of chronic disease leading to overall health and
+                        well-being.
+                    </p>
+                    <div>
+                        <a class="btn btn-primary btn-xl" style="border: outset" href="#portfolio">Find Out More</a>
+                        <a class="btn btn-primary btn-xl" style="border: ridge; background: padding-box"
+                            href="#search-1">Search nutrient values</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Items-->
+    <section id="search-1" class="page-section" id="about" style="background-color: ghostwhite">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-black mt-0">We've got what you need!</h2>
+                    <hr class="divider divider-dark" />
+                    <p class="text-black mb-4">
+                        Start Bootstrap has everything you need to get your new website up
+                        and running in no time! Choose one of our open source, free to
+                        download, and easy to use themes! No strings attached!
+                    </p>
+                    <div class="search-1">
+                        <form method="post" action="/nutrition/search/" id="searchForm">
+                            {% csrf_token %}
+                            <input type="text" name="search" id="search" placeholder="Search for items..." />
+                            <div class="search"></div>
+                        </form>
+                    </div>
+                    <div class="content">
+                        <div class="col my-4">
+                            <div class="my-4">
+                                <ul class="list-group" id="items">
+                                    <li>About <b>{{obj.product_name}}</b>:{{obj.desc}}</li>
+                                    <li>Fat Percentage: {{obj.fat}}%</li>
+                                    <li>Protein Percentage: {{obj.protein}}%</li>
+                                    <li>Carbohydrate Percentage: {{obj.carbohydrate}}%</li>
+                                    <li>Energy Percentage: {{obj.energy}}%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio-->
+    <div id="portfolio">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-4 col-sm-6 container img__wrap">
+                    <a href="dairy.html">
+                        <img class="img-fluid image" src="{% static 'nutrition/1.jpg' %}" href="fruits.html"
+                            alt="..." />
+                        <div class="portfolio-box-caption center" style="height: 25%; width: 25%; text-align: center">
+                            <div class="project-name img__description" style="
+                    padding-top: 20%;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(255, 0, 0, 0.4);
+                    color: #fff;
+                    font-size: x-large;
+                    font-weight: bolder;
+                  ">
+                                Diary
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 container img__wrap">
+                    <a href="fruits.html">
+                        <img class="img-fluid" src="{% static 'nutrition/2.jpg' %}" alt="..." />
+                        <div class="portfolio-box-caption center" style="height: 25%; width: 25%; text-align: center">
+                            <div class="project-name img__description" style="
+                    padding-top: 20%;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(255, 0, 0, 0.4);
+                    color: #fff;
+                    font-size: x-large;
+                    font-weight: bolder;
+                  ">
+                                Fruits
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 container img__wrap">
+                    <a href="vegetables.html">
+                        <img class="img-fluid" src="{% static 'nutrition/3.jpg' %}" alt="..." />
+                        <div class="portfolio-box-caption center" style="height: 25%; width: 25%; text-align: center">
+                            <div class="project-name img__description" style="
+                    padding-top: 20%;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(255, 0, 0, 0.4);
+                    color: #fff;
+                    font-size: x-large;
+                    font-weight: bolder;
+                  ">
+                                Vegetables
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 container img__wrap">
+                    <a href="beans.html">
+                        <img class="img-fluid" src="{% static 'nutrition/4.jpg' %}" alt="..." />
+                        <div class="portfolio-box-caption center" style="height: 25%; width: 25%; text-align: center">
+                            <div class="project-name img__description" style="
+                    padding-top: 20%;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(255, 0, 0, 0.4);
+                    color: #fff;
+                    font-size: x-large;
+                    font-weight: bolder;
+                  ">
+                                Beans
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 container img__wrap">
+                    <a href="spices.html">
+                        <img class="img-fluid" src="{% static 'nutrition/5.jpg' %}" alt="..." />
+                        <div class="portfolio-box-caption center" style="height: 25%; width: 25%; text-align: center">
+                            <div class="project-name img__description" style="
+                    padding-top: 20%;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(255, 0, 0, 0.4);
+                    color: #fff;
+                    font-size: x-large;
+                    font-weight: bolder;
+                  ">
+                                Spices
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 container img__wrap">
+                    <a href="yoga.html">
+                        <img class="img-fluid" src="{% static 'nutrition/6.jpg' %}" alt="..." />
+                        <div class="portfolio-box-caption center" style="height: 25%; width: 25%; text-align: center">
+                            <div class="project-name img__description" style="
+                    padding-top: 20%;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(255, 0, 0, 0.4);
+                    color: #fff;
+                    font-size: x-large;
+                    font-weight: bolder;
+                  ">
+                                Yoga
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to action-->
+    <section class="page-section bg-dark text-white">
+        <div class="container px-4 px-lg-5 text-center">
+            <h2 class="mb-4">Free Download our HomeVeda's Mobile Application!</h2>
+            <a class="btn btn-light btn-xl" href="#">Download Now!</a>
+        </div>
+    </section>
+
+    <!-- ----------- Register Page ----------- -->
+
+    <section id="register" style="padding: 20rem 0rem 0rem 0rem; background-color: bisque">
+        <div class="login-reg-panel">
+            <div class="login-info-box">
+                <h2>Have an account?</h2>
+                <p>Login to continue</p>
+                <label id="label-register" for="log-reg-show">Login</label>
+                <input type="radio" name="active-log-panel" id="log-reg-show" checked="checked" />
+            </div>
+
+            <div class="register-info-box">
+                <h2>Don't have an account?</h2>
+                <p>Register here and become a member</p>
+                <label id="label-login" for="log-login-show">Register</label>
+                <input type="radio" name="active-log-panel" id="log-login-show" />
+            </div>
+
+            <div class="white-panel">
+                <div class="login-show">
+                    <h2>LOGIN</h2>
+                    <input type="text" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <input type="button" value="Login" />
+                    <a href="">Forgot password?</a>
+                </div>
+                <div class="register-show">
+                    <h2>REGISTER</h2>
+                    <input type="text" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <input type="password" placeholder="Confirm Password" />
+                    <input type="button" value="Register" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact-->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact" style="margin-top: 2rem; border-top: 2px red dashed">
+        <div class="container">
+            <div class="section-title">
+                <br />
+                <h2>Contact</h2>
+                <p>
+                    Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+                    aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+                    quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                    fugiat sit in iste officiis commodi quidem hic quas.
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <iframe style="border: 0; width: 100%; height: 350px"
+                src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Indore&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+                frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-lg-4">
+                    <div class="info">
+                        <div class="address d-inline-flex">
+                            <img src="{% static 'nutrition/placeholder.png' %}" alt="" width="32px" height="32px" />
+                            <h4>Location:</h4>
+                        </div>
+                        <p>Greater Kailash , Indore, Madhya Pradesh, Pin-452001</p>
+                        <div class="email d-inline-flex">
+                            <img src="{% static 'nutrition/gmail.png' %}" alt="" width="32px" height="32px" />
+                            <h4>Email:</h4>
+                        </div>
+                        <p>HomeVeda@gmail.com</p>
+
+                        <div class="phone d-inline-flex">
+                            <img src="{% static 'nutrition/call.png' %}" alt="" width="32px" height="32px" />
+                            <h4>Call:</h4>
+                        </div>
+                        <p>0731 ########</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 mt-5 mt-lg-0">
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                    required />
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Your Email" required />
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                                required />
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                                required></textarea>
+                        </div>
+                        <div class="my-3">
+                            <div class="error-message"></div>
+
+                            <div class="sent-message alert alert-success" role="alert">
+                                Your message has been sent. Thank you!
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-danger" type="submit">
+                                Send Message
+                            </button>
+                        </div>
+                        <br />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+    <hr />
+    <!-- End Contact Section -->
+
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted">
+                Copyright &copy; 2021 - Company Name
+            </div>
+            <div style="text-align: center">
+                <span class="flex mx-auto text-black text-center">
+                    <i class="p-2 cursor-pointer hover:underline">Terms & Conditions</i>
+                    <i class="p-2 cursor-pointer hover:underline">Privacy</i>
+                    <i class="p-2 cursor-pointer hover:underline">Cookies</i>
+                </span>
+                <br /><br />
+                <span>
+                    <i class="p-2 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="fill-current text-white" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                        </svg>
+                    </i>
+
+                    <i class="p-2 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="fill-current text-white" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M21.231 0h-18.462c-1.529 0-2.769 1.24-2.769 2.769v18.46c0 1.531 1.24 2.771 2.769 2.771h18.463c1.529 0 2.768-1.24 2.768-2.771v-18.46c0-1.529-1.239-2.769-2.769-2.769zm-9.231 7.385c2.549 0 4.616 2.065 4.616 4.615 0 2.549-2.067 4.616-4.616 4.616s-4.615-2.068-4.615-4.616c0-2.55 2.066-4.615 4.615-4.615zm9 12.693c0 .509-.413.922-.924.922h-16.152c-.511 0-.924-.413-.924-.922v-10.078h1.897c-.088.315-.153.64-.2.971-.05.337-.081.679-.081 1.029 0 4.079 3.306 7.385 7.384 7.385s7.384-3.306 7.384-7.385c0-.35-.031-.692-.081-1.028-.047-.331-.112-.656-.2-.971h1.897v10.077zm0-13.98c0 .509-.413.923-.924.923h-2.174c-.511 0-.923-.414-.923-.923v-2.175c0-.51.412-.923.923-.923h2.174c.511 0 .924.413.924.923v2.175z"
+                                fillRule="evenodd" clipRule="evenodd" />
+                        </svg>
+                    </i>
+
+                    <i class="p-2 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="fill-current text-white" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </i>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'nutrition/script.js' %}"></script>
+
+    <script src="{% static 'nutrition/register.js' %}"></script>
+
+    <script src="{% static 'nutrition/main.js' %}"></script>
+
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    <script>
+        function filterFunction() {
+            var input, filter, ul, li, datalist, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            datalist = document.getElementById("browsers");
+            a = datalist.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+
+        var dropDownValue = document.getElementById("browsers");
+        dropDownValue.onchange = function () {
+            if (this.selectedIndex !== 0) {
+                window.location.href = this.value;
+            }
+        };
+
+        // Search JS
+        // $("#searchForm").submit(function(event) {
+        //     $("#items").empty();
+        //     var formData = {
+        //         'search': $("input[name=search]").val(),
+        //         'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val(),
+        //     };
+
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/nutrition/index/",
+        //         data: formData,
+        //         encode: true,
+        //     })
+        //         .done(function (data) {
+        //             console.log("Data is:", data);
+        //             data = JSON.parse(data);
+        //             updates = data[0];
+        //             if ((updates.length > 0) & (updates != {})) {
+        //                 for (i = 0; i < updates.length; i++) {
+        //                     let name = updates[i]["name"];
+        //                     let fat = updates[i]["fat"];
+        //                     let protein = updates[i]["protein"];
+        //                     let carbohydrate = updates[i]["carbohydrate"];
+        //                     let energy = updates[i]["energy"];
+        //                     let desc = updates[i]["desc"];
+        //                     mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+        //             ${desc}
+                    
+        //         </li>`;
+        //                     $("#items").append(mystr);
+        //                 }
+        //             } else {
+        //                 mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+        //             Sorry, We are not able to fetch this order id and email. Make sure to type correct order Id and email</li>`;
+        //                 $("#items").append(mystr);
+        //             }
+        //         });
+        //     event.preventDefault();
+        // });
+    </script>
+</body>
+
+</html>
